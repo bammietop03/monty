@@ -5,3 +5,4 @@
 <h2>What is a Queue in C?</h2>
 <p>In contrast to a stack, a queue in C is nothing but a linear data structure that follows the FIFO rule (First In First Out). Insertion is done from the back (the rear end) and deletion is done from the front.</p>
 
+
