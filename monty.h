@@ -43,5 +43,6 @@ void pall(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t **stack);
 int match_instruction(char *opcode, stack_t **stack, unsigned int line_number);
 int process_file(const char *file_name);
+void pint(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */
