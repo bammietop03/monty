@@ -61,7 +61,7 @@ int process_file(const char *file_name)
 	stack_t *stack = NULL;
 	char *line = NULL, *opcode;
 	size_t len = 0;
-	unsigned int line_number = 1;
+	unsigned int line_number = 0;
 	FILE *file = fopen(file_name, "r");
 
 	if (!file)
