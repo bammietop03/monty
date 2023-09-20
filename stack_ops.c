@@ -103,7 +103,7 @@ void pop(stack_t **stack, unsigned int line_number)
  */
 void swap(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp = (*stack)->next;
+	stack_t *temp;
 	int temp_val;
 
 	if (*stack == NULL || (*stack)->next == NULL)
@@ -113,6 +113,8 @@ void swap(stack_t **stack, unsigned int line_number)
 	}
 
 	temp_val = (*stack)->n;
+	temp = (*stack)->next;
+
 	(*stack)->n = temp->n;
 	temp->n = temp_val;
 }
