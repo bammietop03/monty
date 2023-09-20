@@ -71,7 +71,7 @@ int process_file(const char *file_name)
 	while (getline(&line, &len, file) != -1)
 	{
 		line_number++;
-		opcode = strtok(line, " \n");
+		opcode = strtok(line, " \n\t\r");
 
 		if (opcode)
 		{
@@ -88,7 +88,7 @@ int process_file(const char *file_name)
 	}
 
 	fclose(file);
-	if (line && *line == 0)
+	if (line)
 		free(line);
 	free_stack(&stack);
 	return (EXIT_SUCCESS);
