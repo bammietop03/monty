@@ -58,7 +58,6 @@ int process_file(const char *file_name)
 	stack_t *stack = NULL;
 	char *line = NULL, *opcode;
 	size_t len = 0;
-	ssize_t read;
 	unsigned int line_number = 0;
 	FILE *file = fopen(file_name, "r");
 
@@ -68,10 +67,10 @@ int process_file(const char *file_name)
 		return (EXIT_FAILURE);
 	}
 
-	while ((read = getline(&line, &len, file)) != -1)
+	while (getline(&line, &len, file) != -1)
 	{
 		line_number++;
-		opcode = strtok(line, "\n\t\r ");
+		opcode = strtok(line, " \n");
 
 		if (opcode)
 		{
