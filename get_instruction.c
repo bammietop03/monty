@@ -80,11 +80,7 @@ int process_file(const char *file_name)
 		line_number++;
 		opcode = strtok(line, " \n");
 
-		if (opcode == NULL || strcmp(opcode, "\n") == 0
-				|| strcmp(opcode, "#") == 0)
-			continue;
-
-		if (opcode)
+		if (opcode && opcode[0] != '#')
 		{
 			if (!match_instruction(opcode, &stack, line_number))
 			{
