@@ -90,8 +90,7 @@ int process_file(const char *file_name)
 	}
 
 	fclose(file);
-	if (line)
-		free(line);
+	free(line);
 	free_stack(&stack);
 	return (EXIT_SUCCESS);
 }
