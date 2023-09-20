@@ -37,6 +37,7 @@ int match_instruction(char *opcode, stack_t **stack, unsigned int line_number)
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
+		{"sub", sub},
 		{NULL, NULL}
 	};
 
@@ -74,7 +75,7 @@ int process_file(const char *file_name)
 	while (getline(&line, &len, file) != -1)
 	{
 		line_number++;
-		opcode = strtok(line, "\n\t\r ");
+		opcode = strtok(line, " \n");
 
 		if (opcode)
 		{

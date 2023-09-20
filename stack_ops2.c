@@ -36,3 +36,30 @@ void nop(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 	/* nop does nothing, so we simply ignore its parameters */
 }
+
+
+/**
+ * sub - Subtracts the top element of the stack from the second top
+ * element of the stack.
+ * @stack: Pointer to the top of the stack.
+ * @line_number: Line number in the file.
+ */
+void sub(stack_t **stack, unsigned int line_number)
+{
+	stack_t *next_el, *top = *stack;
+	int sub = 0;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	next_el = (*stack)->next;
+
+	sub = next_el->n - top->n;
+	next_el->n = sub;
+
+	*stack = next_el;
+	free(top);
+}
