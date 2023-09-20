@@ -24,3 +24,15 @@ void add(stack_t **stack, unsigned int line_number)
 	*stack = next_el;
 	free(top);
 }
+
+/**
+ * nop - Does nothing
+ * @stack: Pointer to the top of the stack.
+ * @line_number: Line number in the file.
+ */
+void nop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+	/* nop does nothing, so we simply ignore its parameters */
+}
