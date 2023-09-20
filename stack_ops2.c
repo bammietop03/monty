@@ -38,23 +38,59 @@ void nop(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * sub - substract the top two elements of the stack.
+ * sub - Subtracts the top element of the stack from the second top
+ * element of the stack.
  * @stack: Pointer to the top of the stack.
  * @line_number: Line number in the file.
  */
 void sub(stack_t **stack, unsigned int line_number)
 {
-	int result;
-	stack_t *temp;
+	stack_t *next_el, *top = *stack;
+	int sub = 0;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	result = (*stack)->next->n - (*stack)->n;
+	next_el = (*stack)->next;
+
+	sub = next_el->n - top->n;
+	next_el->n = sub;
+
+	*stack = next_el;
+	free(top);
+}
+
+/**
+ * div_opcode - Divides the top element of the stack from the second top
+ * element of the stack.
+ * @stack: Pointer to the top of the stack.
+ * @line_number: Line number in the file.
+ */
+void div_opcode(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp;
+	int result, divisor, dividend;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	divisor = (*stack)->n;
+	dividend = (*stack)->next->n;
+
+	if (divisor == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	result = dividend / divisor;
 	temp = *stack;
 	*stack = (*stack)->next;
 	free(temp);
+
 	(*stack)->n = result;
 }
