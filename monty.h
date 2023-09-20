@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
- #include <ctype.h>
+#include <ctype.h>
 #include <unistd.h>
 #include <fcntl.h>
 
@@ -40,6 +40,7 @@ typedef struct instruction_s
 } instruction_t;
 
 void nop(stack_t **stack, unsigned int line_number);
+int isInteger(char *arg);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t **stack);
