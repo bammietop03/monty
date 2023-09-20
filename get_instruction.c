@@ -43,6 +43,7 @@ int match_instruction(char *opcode, stack_t **stack, unsigned int line_number)
 		{"mod", mod_opcode},
 		{"pchar", pchar},
 		{"pstr", pstr},
+		{"rotl", rotl},
 		{NULL, NULL}
 	};
 
