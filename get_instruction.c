@@ -71,7 +71,7 @@ int process_file(const char *file_name)
 	while (getline(&line, &len, file) != -1)
 	{
 		line_number++;
-		opcode = strtok(line, " \n\t\r");
+		opcode = strtok(line, " \n");
 
 		if (opcode)
 		{
