@@ -54,9 +54,6 @@ void pall(stack_t **stack, unsigned int line_number)
 	{
 		printf("%d\n", current->n);
 		current = current->next;
-
-		if (current == *stack)
-			return;
 	}
 }
 
@@ -98,3 +95,25 @@ void pop(stack_t **stack, unsigned int line_number)
 		(*stack)->prev = NULL;
 	free(temp);
 }
+
+/**
+ * swap - Swaps the top two elements of the stack.
+ * @stack: Pointer to the top of the stack.
+ * @line_number: Line number in the file.
+ */
+void swap(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = (*stack)->next;
+	int temp_val;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	temp_val = (*stack)->n;
+	(*stack)->n = temp->n;
+	temp->n = temp_val;
+}
+
