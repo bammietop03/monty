@@ -50,7 +50,7 @@ void pall(stack_t **stack, unsigned int line_number)
 	/*Suppress unused parameter warning*/
 	(void)line_number;
 
-	while (current != NULL)
+	while (current)
 	{
 		printf("%d\n", current->n);
 		current = current->next;
@@ -71,4 +71,27 @@ void pint(stack_t **stack, unsigned int line_number)
 	}
 
 	printf("%d\n", (*stack)->n);
+}
+
+/**
+ * pop - Removes the top element from the stack.
+ * @stack: Pointer to the top of the stack.
+ * @line_number: Line number in the file.
+ */
+void pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = *stack;
+
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	temp = *stack;
+	*stack = (*stack)->next;
+
+	if (*stack)
+		(*stack)->prev = NULL;
+	free(temp);
 }
