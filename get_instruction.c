@@ -40,6 +40,7 @@ int match_instruction(char *opcode, stack_t **stack, unsigned int line_number)
 		{"sub", sub},
 		{"div", div_opcode},
 		{"mul", mul_opcode},
+		{"mod", mod_opcode},
 		{NULL, NULL}
 	};
 
