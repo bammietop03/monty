@@ -55,6 +55,8 @@ void mul_opcode(stack_t **stack, unsigned int line_number);
 void mod_opcode(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
+void rotl(stack_t **stack, unsigned int line_number);
+void rotr(stack_t **stack, unsigned int line_number);
 void stack_mode(stack_t **stack, unsigned int line_number);
 void queue_mode(stack_t **stack, unsigned int line_number);
 void push_stack(stack_t **stack, stack_t *new_node);

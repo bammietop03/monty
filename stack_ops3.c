@@ -62,7 +62,8 @@ void pchar(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pstr - Prints the string starting at the top of the stack, followed by a new line.
+ * pstr - Prints the string starting at the top of the stack,
+ * followed by a new line.
  * @stack: Pointer to the top of the stack.
  * @line_number: Line number in the file.
  */
@@ -108,3 +109,58 @@ void queue_mode(stack_t **stack, unsigned int line_number)
 	mode = 1;
 }
 
+/**
+ * rotl - rotates the stack to the top.
+ * @stack: Pointer to the top of the stack.
+ * @line_number: Line number in the file.
+ */
+void rotl(stack_t **stack, unsigned int line_number)
+{
+	 stack_t *new_top, *current;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+		return;
+
+	new_top = (*stack)->next;
+	current = new_top;
+
+	while (current->next != NULL)
+		current = current->next;
+
+	current->next = *stack;
+	(*stack)->prev = current;
+	(*stack)->next = NULL;
+	new_top->prev = NULL;
+
+	*stack = new_top;
+	(void)line_number;
+}
+
+/**
+ * rotr - rotates the stack to the bottom.
+ * @stack: Pointer to the top of the stack.
+ * @line_number: Line number in the file.
+ */
+void rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *new_top, *current;
+	
+	if (*stack == NULL || (*stack)->next == NULL)
+		return;
+
+	current = *stack;
+	new_top = current;
+
+	while (current->next != NULL)
+	{
+		new_top = current;
+		current = current->next;
+	}
+
+	new_top->next = NULL;
+	current->next = *stack;
+	(*stack)->prev = current;
+	*stack = current;
+
+	(void)line_number;
+}
