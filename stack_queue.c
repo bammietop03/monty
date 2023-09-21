@@ -1,6 +1,6 @@
 #include "monty.h"
 
-int mode = 0
+int mode = 0;
 
 /**
  * isInteger - Checks if argument is an integer
