@@ -43,13 +43,10 @@ int match_instruction(char *opcode, stack_t **stack, unsigned int line_number)
 		{"mod", mod_opcode},
 		{"pchar", pchar},
 		{"pstr", pstr},
-<<<<<<< HEAD
-		{"stack", stack_mode},
-		{"queue", queue_mode},
-=======
 		{"rotl", rotl},
 		{"rotr", rotr},
->>>>>>> 8345f783564c58aea48aa6c415cdf67d3c268626
+		{"stack", stack_mode},
+		{"queue", queue_mode},
 		{NULL, NULL}
 	};
 
