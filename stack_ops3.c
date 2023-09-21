@@ -1,5 +1,7 @@
 #include "monty.h"
 
+int mode = 0;
+
 /**
  * mod_opcode - computes the rest of the division of the second top
  * element of the stack by the top element of the stack.
@@ -81,3 +83,28 @@ void pstr(stack_t **stack, unsigned int line_number)
 	printf("\n");
 	(void)line_number;
 }
+
+/**
+ * stack_mode - Sets the mode to stack (LIFO).
+ * @stack: Pointer to the top of the stack.
+ * @line_number: Line number in the file.
+ */
+void stack_mode(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+	mode = 0;
+}
+
+/**
+ * queue_mode - Sets the mode to queue (FIFO).
+ * @stack: Pointer to the top of the stack.
+ * @line_number: Line number in the file.
+ */
+void queue_mode(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+	mode = 1;
+}
+

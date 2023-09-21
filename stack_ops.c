@@ -12,18 +12,16 @@ void push(stack_t **stack, unsigned int line_number)
 	char *arg = strtok(NULL, " \n");
 	int num;
 
-	if (arg == NULL || isInteger(arg))
+	if (!arg || isInteger(arg))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	/*Convert the argument to an integer*/
-	num = atoi(arg);
-
+	num = atoi(arg); /*Convert the argument to an integer*/
 	new_node = malloc(sizeof(stack_t));
 
-	if (new_node == NULL)
+	if (!new_node)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
@@ -31,13 +29,14 @@ void push(stack_t **stack, unsigned int line_number)
 
 	new_node->n = num;
 	new_node->prev = NULL;
-	new_node->next = *stack;
 
-	if (*stack != NULL)
-		(*stack)->prev = new_node;
+	if (mode == 0) /* Stack mode (LIFO) */
+		push_stack(stack, new_node);
 
-	*stack = new_node;
+	else /* Queue mode (FIFO) */
+		push_queue(stack, new_node);
 }
+
 
 /**
  * pall - Prints all the values on the stack.
@@ -89,12 +88,20 @@ void pop(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	temp = *stack;
-	*stack = (*stack)->next;
-
-	if (*stack)
-		(*stack)->prev = NULL;
-	free(temp);
+	if (mode == 0) /*Stack mode (LIFO)*/
+	{
+		temp = *stack;
+		*stack = (*stack)->next;
+		if (*stack != NULL)
+			(*stack)->prev = NULL;
+		free(temp);
+	}
+	else /*Queue mode (FIFO)*/
+	{
+		temp = *stack;
+		*stack = (*stack)->next;
+		free(temp);
+	}
 }
 
 /**

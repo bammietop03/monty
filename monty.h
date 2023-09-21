@@ -9,6 +9,8 @@
 #include <unistd.h>
 #include <fcntl.h>
 
+extern int mode;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -39,13 +41,10 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/* Stack Operations */
 void nop(stack_t **stack, unsigned int line_number);
-int isInteger(char *arg);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
-void free_stack(stack_t **stack);
-int match_instruction(char *opcode, stack_t **stack, unsigned int line_number);
-int process_file(const char *file_name);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
@@ -56,5 +55,17 @@ void mul_opcode(stack_t **stack, unsigned int line_number);
 void mod_opcode(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
+void stack_mode(stack_t **stack, unsigned int line_number);
+void queue_mode(stack_t **stack, unsigned int line_number);
+void push_stack(stack_t **stack, stack_t *new_node);
+void push_queue(stack_t **stack, stack_t *new_node);
+
+/* Match Opcodes */
+int match_instruction(char *opcode, stack_t **stack, unsigned int line_number);
+int process_file(const char *file_name);
+void free_stack(stack_t **stack);
+
+/* Helper function */
+int isInteger(char *arg);
 
 #endif /* MONTY_H */
