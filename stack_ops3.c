@@ -86,30 +86,6 @@ void pstr(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * stack_mode - Sets the mode to stack (LIFO).
- * @stack: Pointer to the top of the stack.
- * @line_number: Line number in the file.
- */
-void stack_mode(stack_t **stack, unsigned int line_number)
-{
-	(void)stack;
-	(void)line_number;
-	mode = 0;
-}
-
-/**
- * queue_mode - Sets the mode to queue (FIFO).
- * @stack: Pointer to the top of the stack.
- * @line_number: Line number in the file.
- */
-void queue_mode(stack_t **stack, unsigned int line_number)
-{
-	(void)stack;
-	(void)line_number;
-	mode = 1;
-}
-
-/**
  * rotl - rotates the stack to the top.
  * @stack: Pointer to the top of the stack.
  * @line_number: Line number in the file.

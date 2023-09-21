@@ -24,6 +24,30 @@ int isInteger(char *arg)
 }
 
 /**
+ * stack_mode - Sets the mode to stack (LIFO).
+ * @stack: Pointer to the top of the stack.
+ * @line_number: Line number in the file.
+ */
+void stack_mode(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+	mode = 0;
+}
+
+/**
+ * queue_mode - Sets the mode to queue (FIFO).
+ * @stack: Pointer to the top of the stack.
+ * @line_number: Line number in the file.
+ */
+void queue_mode(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+	mode = 1;
+}
+
+/**
  * push_stack - Pushes a node onto the stack in stack mode (LIFO).
  * @stack: Pointer to the top of the stack.
  * @new_node: Pointer to the new node to push onto the stack.
