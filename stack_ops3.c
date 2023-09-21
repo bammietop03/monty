@@ -1,7 +1,5 @@
 #include "monty.h"
 
-int mode = 0;
-
 /**
  * mod_opcode - computes the rest of the division of the second top
  * element of the stack by the top element of the stack.
@@ -120,7 +118,7 @@ void rotl(stack_t **stack, unsigned int line_number)
 void rotr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_top, *current;
-	
+
 	if (*stack == NULL || (*stack)->next == NULL)
 		return;
 

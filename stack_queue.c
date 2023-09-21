@@ -1,5 +1,7 @@
 #include "monty.h"
 
+int mode = 0
+
 /**
  * isInteger - Checks if argument is an integer
  * @arg: double pointer to head of stack
