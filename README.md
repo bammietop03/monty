@@ -102,3 +102,7 @@ julien@ubuntu:~/monty$
 </code>
 </pre>
 </ul>
+<h3>Authors</h3>
+<p>This program was written by:</p>
+<p>Nkechi Christabel Udenkwor <udenkwornkechi@gmail.com></P.
+<p>Bamiwo Adebayo <Bammietop@gmail.com></p>
