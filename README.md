@@ -58,8 +58,8 @@ julien@ubuntu:~/monty$</code></pre>
 <li><code>nop:</code>Does nothing.</li>
 <li><code>comments:</code>The capability of commenting.</li>
 <li><code>rotl:</code>Moves element at the top to the bottom of the stack.</li>
-<li><code>rotr</code>The bottom of the stack becomes the top.</li>
-<li><code>queue, stack</code>Toggles the doubly link list implementation style</li>
+<li><code>rotr:</code>The bottom of the stack becomes the top.</li>
+<li><code>queue, stack:</code>Toggles the doubly link list implementation style</li>
 <h3>Example</h3>
 <pre>
 <code>
